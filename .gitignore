@@ -8,7 +8,6 @@ packer\variables.json
 jdauphant.nginx
 vault.key
 .vagrant/
-*.log
 *.pyc
 .molecule
 .cache
