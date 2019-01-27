@@ -1,0 +1,6 @@
+REPOSITORY              TAG                 IMAGE ID            CREATED             SIZE
+akond/ubuntu-tmp-file   latest              56a53bfcf154        24 hours ago        116MB
+ubuntu                  16.04               a51debf7e1eb        5 weeks ago         116MB
+hello-world             latest              4ab4c602aa5e        3 months ago        1.84kB
+An image is a snapshot of a container
+A container is a running instance of a image
