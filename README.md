@@ -84,3 +84,45 @@ sudo docker run -d --network=reddit \
 sudo docker run -d --network=reddit \
 -p 9292:9292 alxkondgcptest/ui:1.0
 ```
+
+## Homework docker-4
+
+- Сравнил none и host драйвера дoкер сети
+```
+docker run -ti --rm --network none joffotron/docker-net-tools -c ifconfig 
+docker run -ti --rm --network host joffotron/docker-net-tools -c ifconfig
+```
+- Создал докер bridgе-сеть с именем reddit `docker network create reddit --driver bridge`
+- Запустил проект с использование bridge-сети
+```
+docker run -d --network=reddit mongo:latest
+docker run -d --network=reddit alxkondgcptest/post:1.0
+docker run -d --network=reddit alxkondgcptest/comment:1.0
+docker run -d --network=reddit -p 9292:9292 alxkondgcptest/ui:1.0 
+```
+- Удалил контейнеры и запустил проект с использованием алиасов
+```
+docker run -d --network=reddit --network-alias=post_db --networkalias=comment_db
+mongo:latest
+docker run -d --network=reddit --network-alias=post alxkondgcptest/post:
+1.0
+docker run -d --network=reddit --network-alias=comment /
+comment:1.0
+docker run -d --network=reddit -p 9292:9292 alxkondgcptest/ui:1.0
+```
+- Удалил контейнеры и пересоздал подсеть с использование двух подсетей
+```
+docker network create back_net --subnet=10.0.2.0/24
+docker network create front_net --subnet=10.0.1.0/24
+docker run -d --network=front_net -p 9292:9292 --name ui alxkondgcptest/ui:1.0
+docker run -d --network=back_net --name comment alxkondgcptest/comment:1.0
+docker run -d --network=back_net --name post alxkondgcptest/post:1.0
+docker run -d --network=back_net --name mongo_db \
+ --network-alias=post_db --network-alias=comment_db mongo:latest
+```
+Подключил необходимы контейнеры ко второй подсети
+ ```
+docker network connect front_net post
+docker network connect front_net comment
+ ```
+ - Создал файл `docker-compose.yml`
