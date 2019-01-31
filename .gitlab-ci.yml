@@ -10,11 +10,6 @@ build_job:
   script:
     - echo 'Building'
 
-test_unit_job:
-  stage: test
-  script:
-    - echo 'Testing 1'
-
 test_integration_job:
   stage: test
   script:
@@ -27,6 +22,24 @@ deploy_dev_job:
   environment:
     name: dev
     url: http://dev.example.com
+
+staging:
+  stage: stage
+  when: manual
+  script:
+  - echo 'Deploy'
+  environment:
+    name: stage
+    url: https://beta.example.com
+
+production:
+  stage: production
+  when: manual
+  script:
+  - echo 'Deploy'
+  environment:
+    name: production
+    url: https://example.com
 
 variables:
   DATABASE_URL: 'mongodb://mongo/user_posts'
