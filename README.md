@@ -126,3 +126,21 @@ docker network connect front_net post
 docker network connect front_net comment
  ```
  - Создал файл `docker-compose.yml`
+
+## Homework gitlab-ci-1
+
+- Развернул новую ВМ в GCP
+- Создал необходимые папки
+- Создал docker-compose.yml
+- Установил GitLab сервере через `docker-compose.yml up -d`
+- В GitLab настроил группу и проект
+- Добавил репозиторий в проект через
+```
+git remote add gitlab http://34.76.69.125/homework/example.git
+git push gitlab gitlab-ci-1
+```
+- Добавил `.gitlab-ci.yml` с тестовым pipleline
+- Создал и зарегистрировал новый runner
+- Изменил pipeline для тестирования reddit
+- Добавил `simpletest.rb` для тестов
+- Проверил что pipeline отрабатывает успешно
