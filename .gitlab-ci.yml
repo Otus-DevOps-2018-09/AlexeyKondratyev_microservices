@@ -36,9 +36,11 @@ branch review:
  except:
  - master
 
-staging:
+stage:
   stage: stage
   when: manual
+  only:
+    - /^\d+\.\d+\.\d+/
   script:
   - echo 'Deploy'
   environment:
@@ -48,6 +50,8 @@ staging:
 production:
   stage: production
   when: manual
+  only:
+   - /^\d+\.\d+\.\d+/
   script:
   - echo 'Deploy'
   environment:
