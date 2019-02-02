@@ -66,4 +66,4 @@ test_unti_job:
   services:
   - mongo:latest
   script:
-  - ruby simpletest.rb
+    - ruby simpletest.rb
