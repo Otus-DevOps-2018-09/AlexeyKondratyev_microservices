@@ -41,3 +41,11 @@ services:
       - '--config.file=/etc/prometheus/prometheus.yml'
       - '--storage.tsdb.path=/prometheus'
       - '--storage.tsdb.retention=1d'
+
+volumes:
+  post_db:
+  prometheus_data:
+
+networks:
+  front_net:
+  back_net:
