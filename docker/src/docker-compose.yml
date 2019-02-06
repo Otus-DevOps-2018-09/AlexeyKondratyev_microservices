@@ -24,8 +24,3 @@ services:
     networks:
       - reddit
 
-volumes:
-  post_db:
-
-networks:
-  reddit:
