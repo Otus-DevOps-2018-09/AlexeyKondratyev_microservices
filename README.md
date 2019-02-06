@@ -156,8 +156,12 @@ git push gitlab gitlab-ci-1
 
 ## Monitoring-1 
 
--- Созадал правило для фаервола
+- Созадал правило для фаервола
 ```
 gcloud compute firewall-rules create prometheus-default --allow tcp:9090
 gcloud compute firewall-rules create puma-default --allow tcp:9292 
 ```
+- Создал рабочю директорию `monitoring/prometheus`
+- Создал Dockerfile  прометиуса
+- Создал файл конфигурации для прометиуса prometheus.yml
+- Собрал докер-образ прометиуса  `docker build -t /prometheus .`
