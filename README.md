@@ -165,3 +165,13 @@ gcloud compute firewall-rules create puma-default --allow tcp:9292
 - Создал Dockerfile  прометиуса
 - Создал файл конфигурации для прометиуса prometheus.yml
 - Собрал докер-образ прометиуса  `docker build -t /prometheus .`
+
+## Monitoring-2
+
+- Создал отдельный `docker-compose-monitoring.yml`
+- Добавил конфиг cAdvisor
+- Добавил контейнер графаны в docker-compose-monitoring.yml 
+- Добавил дашборды графану
+- Добавил конфиг на alertmanager
+
+- 
