@@ -153,3 +153,15 @@ git push gitlab gitlab-ci-1
 - Добавил ручной способ запуска задач на stage и prod через `when: manual`
 - Добоавил условие что только изменения с тегом версии могут уйти на stage
 - Добавил возможность создания динамических окружений для всех веток кроме ветки master
+
+## Monitoring-1 
+
+- Созадал правило для фаервола
+```
+gcloud compute firewall-rules create prometheus-default --allow tcp:9090
+gcloud compute firewall-rules create puma-default --allow tcp:9292 
+```
+- Создал рабочю директорию `monitoring/prometheus`
+- Создал Dockerfile  прометиуса
+- Создал файл конфигурации для прометиуса prometheus.yml
+- Собрал докер-образ прометиуса  `docker build -t /prometheus .`
