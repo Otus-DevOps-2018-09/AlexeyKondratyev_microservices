@@ -173,5 +173,3 @@ gcloud compute firewall-rules create puma-default --allow tcp:9292
 - Добавил контейнер графаны в docker-compose-monitoring.yml 
 - Добавил дашборды графану
 - Добавил конфиг на alertmanager
-
-- 
