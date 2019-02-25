@@ -173,3 +173,25 @@ gcloud compute firewall-rules create puma-default --allow tcp:9292
 - Добавил контейнер графаны в docker-compose-monitoring.yml 
 - Добавил дашборды графану
 - Добавил конфиг на alertmanager
+
+## Logging-1
+
+- Запустил сборку образов для каждого сервиса
+```
+for i in ui post-py comment; do cd src/$i; bash docker_build.sh; cd -; done
+```
+- Создал отдельный docker compose файл для системы логгирования `docker-compose-logging.yml`
+- Создал `Dockerfile` для fluentd
+- Создал конфиг для fluentd `fluent.conf`
+- Собрал образ для fluebtd `docker build -t alxkondgcptest/fluentd`
+- Поправил env файл
+- Зпустил сервисы `docker-compose up -d`
+- Запустил команду просмотра логов `docker-compose logs -f post`
+- Добавляем драйвер fluentd в docker-compose.yml для сервиса post
+- Поднял сервисы логирования и перезапустил сервисы приложения
+```
+docker-compose -f docker-compose-logging.yml up -d
+docker-compose down
+docker-compose up -d 
+``` 
+- Добавил фильтр для парсинга json логов в конфиг fluent.conf

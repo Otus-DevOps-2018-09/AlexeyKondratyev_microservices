@@ -17,4 +17,3 @@ services:
     image: kibana
     ports:
       - "5601:5601"
-  
