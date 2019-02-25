@@ -28,23 +28,8 @@ services:
       - back_net
       - front_net
 
-  prometheus:
-    image: ${USERNAME}/prometheus:latest
-    ports:
-      - '9090:9090'
-    networks:
-      - back_net
-      - front_net
-    volumes:
-      - prometheus_data:/prometheus
-    command:
-      - '--config.file=/etc/prometheus/prometheus.yml'
-      - '--storage.tsdb.path=/prometheus'
-      - '--storage.tsdb.retention=1d'
-
 volumes:
   post_db:
-  prometheus_data:
 
 networks:
   front_net:
