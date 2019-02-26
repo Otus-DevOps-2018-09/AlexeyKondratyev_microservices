@@ -201,3 +201,8 @@ docker-compose up -d
 - Создал файлы ...-deploment.yml
 - Прочитал `kubenrnetes The Hard Way` и осознал на что я подписался
 - Создал файлы в kubernates/the_hard_way
+
+## kubernetes-2
+
+- Устанвовил kubectl вместе с minikube
+
