@@ -195,3 +195,9 @@ docker-compose down
 docker-compose up -d 
 ``` 
 - Добавил фильтр для парсинга json логов в конфиг fluent.conf
+
+## kubernetes-1
+
+- Создал файлы ...-deploment.yml
+- Прочитал `kubenrnetes The Hard Way` и осознал на что я подписался
+- Создал файлы в kubernates/the_hard_way
